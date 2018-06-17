@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using RobotCanary.Users;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace RobotCanary.Controllers
 {
@@ -32,10 +33,10 @@ namespace RobotCanary.Controllers
             return user;
         }
 
-        [HttpPost]
-        public void Post([FromBody] UserEntity user)
+        [HttpPost("register")]
+        public async Task PostAsync([FromBody] RegisterUserRequest registerUser)
         {
-
+            await usersRepo.RegisterAdmin(registerUser);
         }
 
         [HttpPut("{id}")]
