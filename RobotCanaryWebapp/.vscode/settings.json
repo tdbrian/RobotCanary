@@ -18,5 +18,8 @@
     "src/karma.conf.js": true,
     "src/test.ts": true,
     "src/polyfills.ts": true,
-  }
+  },
+  "cSpell.words": [
+    "Okta"
+  ]
 }

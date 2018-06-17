@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OktaAuthService } from '@okta/okta-angular';
-import { HttpClient } from '@angular/common/http';
-import { getExternalInfo } from './shared/utils/externalUserInfo';
+import { UserAvatarService } from './core/services/user-avatar.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +11,7 @@ export class AppComponent implements OnInit {
   title = 'app';
   isAuthenticated: boolean;
 
-  constructor(public oktaAuth: OktaAuthService, public http: HttpClient) {
+  constructor(public oktaAuth: OktaAuthService, public avatarService: UserAvatarService) {
     this.oktaAuth.$authenticationState.subscribe(
       (isAuthenticated: boolean) => this.isAuthenticated = isAuthenticated
     );
@@ -23,8 +22,7 @@ export class AppComponent implements OnInit {
     if (!this.isAuthenticated) {
       this.oktaAuth.loginRedirect('/dashboard');
     }
-    const user = await this.oktaAuth.getUser();
-    const res = await getExternalInfo(this.http, user.email);
-    console.dir(res);
+
+    await this.avatarService.setCurrentUserAvatar();
   }
 }
