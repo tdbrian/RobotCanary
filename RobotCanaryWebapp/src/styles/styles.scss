@@ -1,0 +1,32 @@
+@import 'bootstrap-override';
+@import 'mdi-icon-tweaks';
+
+body {
+  background-color: #eceff1;
+  font-family: 'Roboto', sans-serif;
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.error-card {
+  max-width: 400px;
+  min-width: 280px;
+  margin: 0 auto;
+  vertical-align: middle;
+  h1 {
+    font-size: 210px;
+    font-weight: 900;
+    line-height: 210px;
+    margin: 0px;
+    text-shadow: 4px 5px 1px #b3bbbf;
+    color: #1a222b;
+  }
+  .text-muted {
+    color: #99abb4 !important;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-weight: 300;
+    font-size: 16px;
+  }
+}

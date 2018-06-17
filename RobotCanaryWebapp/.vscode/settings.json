@@ -1,0 +1,22 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    ".gitignore": true,
+    "tsconfig.json": true,
+    "yarn.lock": true,
+    "tslint.json": true,
+    ".editorconfig": true,
+    "package-lock.json": true,
+    "src/browserslist": true,
+    "src/tsconfig.app.json": true,
+    "src/tsconfig.spec.json": true,
+    "src/tslint.json": true,
+    "src/karma.conf.js": true,
+    "src/test.ts": true,
+    "src/polyfills.ts": true,
+  }
+}

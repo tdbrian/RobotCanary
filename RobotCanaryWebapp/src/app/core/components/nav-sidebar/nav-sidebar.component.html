@@ -1,0 +1,73 @@
+<section>
+  <div id="corner-logo" class="d-flex">
+    <i class="mdi mdi-file-find"></i>
+    <div>Survey<b>Canary</b></div>
+  </div>
+
+  <div class="nav-area" [ngClass]="{open: isOpen('mySurveys')}" (click)="toggleTab('mySurveys')">
+    <div class="header">Surveys</div>
+    <div class="nav-sub" [@openClose]="openTab === 'mySurveys'">
+      <a href="#" class="nav-item"><i class="mdi mdi-lead-pencil"></i>Drafts</a>
+      <a href="#" class="nav-item"><i class="mdi mdi-airplane-takeoff"></i>Published</a>
+      <a href="#" class="nav-item"><i class="mdi mdi-clipboard-check"></i>Completed</a>
+      <a href="#" class="nav-item"><i class="mdi mdi-package-variant-closed"></i>Closed</a>
+    </div>
+  </div>
+
+  <div class="nav-area" [ngClass]="{open: isOpen('participants')}" (click)="toggleTab('participants')">
+    <div class="header">Participants</div>
+    <div class="nav-sub" [@openClose]="openTab === 'participants'">
+      <a href="#" class="nav-item"><i class="mdi mdi-layers"></i>Participant Groups</a>
+      <a href="#" class="nav-item"><i class="mdi mdi-account-multiple"></i>Participants Manager</a>
+    </div>
+  </div>
+
+  <div class="nav-area" [ngClass]="{open: isOpen('designer')}" (click)="toggleTab('designer')">
+    <div class="header">Designer</div>
+    <div class="nav-sub" [@openClose]="openTab === 'designer'">
+      <a href="#" class="nav-item"><i class="mdi mdi-help"></i>Questions</a>
+      <a href="#" class="nav-item"><i class="mdi mdi-file-hidden"></i>Templates</a>
+      <a href="#" class="nav-item"><i class="mdi mdi-image-filter-vintage"></i>Branding</a>
+      <a href="#" class="nav-item"><i class="mdi mdi-email"></i>Emails</a>
+    </div>
+  </div>
+
+  <div class="nav-area" [ngClass]="{open: isOpen('data')}" (click)="toggleTab('data')">
+    <div class="header">Data Management</div>
+    <div class="nav-sub" [@openClose]="openTab === 'data'">
+      <a href="#" class="nav-item"><i class="mdi mdi-cloud-search-outline"></i>Search</a>
+      <a href="#" class="nav-item"><i class="mdi mdi-file-import"></i>Import</a>
+      <a href="#" class="nav-item"><i class="mdi mdi-file-export"></i>Export</a>
+      <a href="#" class="nav-item"><i class="mdi mdi-delete-sweep"></i>Cleanse</a>
+    </div>
+  </div>
+
+  <div class="nav-area" [ngClass]="{open: isOpen('reporting')}" (click)="toggleTab('reporting')">
+    <div class="header">Reporting</div>
+    <div class="nav-sub" [@openClose]="openTab === 'reporting'">
+      <a href="#" class="nav-item"><i class="mdi mdi-file-chart"></i>All</a>
+      <a href="#" class="nav-item"><i class="mdi mdi-archive"></i>Archived</a>
+    </div>
+  </div>
+
+  <div class="nav-area" [ngClass]="{open: isOpen('admin')}" (click)="toggleTab('admin')">
+    <div class="header">Admin</div>
+    <div class="nav-sub" [@openClose]="openTab === 'admin'">
+      <a href="#" class="nav-item"><i class="mdi mdi-message-settings-variant"></i>Company Settings</a>
+      <a href="#" class="nav-item"><i class="mdi mdi-account-card-details"></i>Users</a>
+      <a href="#" class="nav-item"><i class="mdi mdi-credit-card-settings"></i>Billing</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="nav-area upgrade-nav">
+    <div class="upgrade-group">
+      <div class="plan-details">
+        <div class="plan">Free Plan $0/month</div>
+        <div class="usage">0/100 Surveys Sent</div>
+      </div>
+      <button class="header">UPGRADE</button>
+    </div>
+  </div>
+</section>
