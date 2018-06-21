@@ -8,6 +8,8 @@ using Okta.Sdk.Configuration;
 using RobotCanary.ExternalServices.Okta;
 using RobotCanary.Users;
 using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+
 
 namespace RobotCanary
 {
@@ -39,6 +41,16 @@ namespace RobotCanary
             {
                 c.SwaggerDoc("v1", new Info { Title = "RobotCanary API", Version = "v1" });
             });
+
+            services.AddAuthentication(sharedOptions =>
+            {
+                sharedOptions.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                sharedOptions.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(options => {
+                options.Authority = "https://{yourOktaDomain}.com/oauth2/default";
+                options.Audience = "api://default";
+            });
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -52,6 +64,7 @@ namespace RobotCanary
                 app.UseHsts();
             }
 
+            app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseMvc();
 

@@ -1,9 +1,10 @@
 @import 'src/styles/variables';
 
 $highlight-color: #374152;
-$border: 1px solid #374152;
+$border: 1px solid #e6e6e6;
 $padding: 20px;
-$active-color: #55c6ff;
+$active-color: #0080e6;
+$logo-color: #e91e63;
 
 :host {
   display: flex;
@@ -14,22 +15,21 @@ $active-color: #55c6ff;
   top: 0;
   bottom: 0;
   width: 250px;
-  background-color: #27303d;
+  background-color: #efefef;
 }
 
 #corner-logo {
   padding-top: 15px;
   padding-bottom: 6px;
   padding-left: $padding;
-  color: white;
+  color: #62787f;
   text-transform: uppercase;
   font-size: 16px;
-  border-bottom: $border;
   i {
     font-size: 28px;
     padding-right: 5px;
     margin-top: -6px;
-    color: #ffcc2d;
+    color: $logo-color;
   }
   div {
     padding-top: 4px;
@@ -43,8 +43,7 @@ $sub-nav-padding: 5px;
 .nav-area {
   display: flex;
   flex-direction: column;
-  color: white;
-  border-bottom: $border;
+  color: #62787f;
 
   .header {
     padding-top: $padding;
@@ -54,14 +53,14 @@ $sub-nav-padding: 5px;
     text-transform: uppercase;
     cursor: pointer;
     &:hover {
-      background-color: #353b43;
+      background-color: #dadada;
     }
   }
 
   &.open {
     .header {
       padding-bottom: $padding - $sub-nav-padding - 5;
-      background-color: #19212b;
+      background-color: #e6e6e6;
       cursor: default;
     }
     .nav-sub {
@@ -82,10 +81,11 @@ $sub-nav-padding: 5px;
     padding-bottom: $sub-nav-padding;
     font-weight: 500;
     text-decoration: none;
-    color: white;
+    color: #62787f;
     width: 100%;
     &:hover {
-      background-color: $highlight-color;
+      background-color: #dadada;
+      color: $active-color;
     }
     i {
       font-size: 20px;
@@ -96,7 +96,7 @@ $sub-nav-padding: 5px;
 
 .upgrade-nav {
   border-top: $border;
-  margin-bottom: $padding * 2;
+  margin-bottom: $padding * 1.5;
 }
 
 .upgrade-group {
@@ -108,7 +108,6 @@ $sub-nav-padding: 5px;
     padding-right: $padding;
     background: transparent;
     border: none;
-    color: white;
     transition: 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
     &:hover {
       color: $active-color;

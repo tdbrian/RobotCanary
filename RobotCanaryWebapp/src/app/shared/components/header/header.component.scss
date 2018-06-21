@@ -1,8 +1,6 @@
 .wrapper {
-  display: flex;
-  background-color: #049ae5;
-  color: white;
-  padding: 14px 24px;
+  background-color: white;
+  color: #393c4a;
   font-size: 15px;
 }
 
@@ -20,4 +18,11 @@ h1 {
   padding: 20px 0 5px 0;
   margin: 0;
   font-weight: 500;
+}
+
+$avatar-size: 64px;
+.avatar {
+  height: $avatar-size;
+  width: $avatar-size;
+  border-radius: 50%;
 }

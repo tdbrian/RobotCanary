@@ -10,7 +10,7 @@ export const expandableAnimation = [
   trigger('openClose', [
     state('true', style({
       height: '*',
-      backgroundColor: '#19212b',
+      backgroundColor: '#e6e6e6',
       paddingBottom: '20px'
     })),
     state('false', style({

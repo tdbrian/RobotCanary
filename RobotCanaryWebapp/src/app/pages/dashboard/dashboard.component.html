@@ -1,5 +1,56 @@
 <app-header></app-header>
 
-<p>
-  dashboard works!
-</p>
+<div class="container mt-4">
+
+  <h2>My Surveys</h2>
+
+  <div class="row mt-4 stats-row">
+
+    <div class="col-4 right-divider">
+      <h3 class="pb-3">Getting Started</h3>
+      <button class="btn btn-outline-primary btn-block">
+        <i class="mdi mdi-format-list-checks"></i>
+        Create New Survey
+      </button>
+      <button class="btn btn-secondary btn-block">
+        <i class="mdi mdi-email"></i>
+        Send Survey
+      </button>
+      <button class="btn btn-secondary btn-block">
+        <i class="mdi mdi-reminder"></i>
+        Send Reminders
+      </button>
+      <button class="btn btn-secondary btn-block">
+        <i class="mdi mdi-file-find"></i>
+        View Results
+      </button>
+    </div>
+
+    <div class="col-4 right-divider">
+      <h3 class="pb-2">Stats</h3>
+      <ul class="list-group list-group-flush stats-list">
+        <li class="d-flex align-items-center">
+          <span class="badge badge-primary badge-pill">14</span>
+          Total you created
+        </li>
+        <li class="d-flex align-items-center">
+          <span class="badge badge-secondary badge-pill">2</span>
+          Pending Campaigns
+        </li>
+        <li class="d-flex align-items-center">
+          <span class="badge badge-info badge-pill">1</span>
+          Closed Campaigns
+        </li>
+      </ul>
+
+      <a href="/reporting">Go to Reporting</a>
+    </div>
+
+    <div class="col-4">
+      <h3 class="pb-2">Pending</h3>
+      <p class="text-mute">None pending at this time</p>
+    </div>
+
+  </div>
+
+</div>

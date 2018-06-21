@@ -31,7 +31,7 @@ export class UserAvatarService {
       return undefined;
     }
 
-    return {
+    this.currentUserAvatar = {
       title: title[0],
       imgUrl: imgUrl[0]
     };
