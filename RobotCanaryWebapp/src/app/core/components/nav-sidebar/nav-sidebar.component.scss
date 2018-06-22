@@ -40,12 +40,14 @@ $logo-color: #e91e63;
 }
 
 $sub-nav-padding: 5px;
+$nav-area-color: #62787f;
 .nav-area {
   display: flex;
   flex-direction: column;
-  color: #62787f;
+  color: $nav-area-color;
 
   .header {
+    color: $nav-area-color;
     padding-top: $padding;
     padding-left: $padding;
     padding-bottom: $padding;
@@ -54,6 +56,26 @@ $sub-nav-padding: 5px;
     cursor: pointer;
     &:hover {
       background-color: #dadada;
+      text-decoration: none;
+    }
+    &.active {
+      background-color: #dadada;
+      color: $active-color;
+    }
+    i {
+      font-size: 20px;
+      padding-right: 10px;
+    }
+  }
+
+  $highlight-color: #8f9aa5;
+  .highlight-header {
+    background-color: $highlight-color;
+    color: white;
+    transition: background-color 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+    &:hover {
+      transition: background-color 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+      background-color: darken($color: $logo-color, $amount: 4)
     }
   }
 

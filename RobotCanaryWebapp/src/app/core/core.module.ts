@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavSidebarComponent } from './components/nav-sidebar/nav-sidebar.component';
 import { OktaAuthModule, OktaCallbackComponent } from '@okta/okta-angular';
 import { UserAvatarService } from './services/user-avatar.service';
+import { RouterModule } from '@angular/router';
 
 const components = [NavSidebarComponent];
 
@@ -15,6 +16,7 @@ const config = {
 
 @NgModule({
   imports: [
+    RouterModule,
     HttpClientModule,
     CommonModule,
     OktaAuthModule.initAuth(config)
