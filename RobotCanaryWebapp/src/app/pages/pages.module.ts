@@ -5,6 +5,7 @@ import { SharedModule } from '../shared/shared.module';
 import { RouterModule, Routes } from '@angular/router';
 import { MissingPageComponent } from './missing-page/missing-page.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { SurveysModule } from './surveys/surveys.module';
 
 const routes: Routes = [
   {
@@ -18,7 +19,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     SharedModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    SurveysModule
   ],
   declarations: [DashboardComponent, MissingPageComponent]
 })
