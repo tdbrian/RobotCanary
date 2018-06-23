@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RobotCanary.Controllers
 {
-    [Route("api/user")]
+    [Route("api/v1/user")]
     [ApiController]
     public class UsersController : ControllerBase
     {
@@ -17,7 +17,7 @@ namespace RobotCanary.Controllers
             this.usersRepo = usersRepo;
         }
 
-        [HttpGet("/organization/{organizationId}")]
+        [HttpGet("organization/{organizationId}")]
         public ActionResult<List<UserEntity>> GetByOrganization(int organizationId)
         {
             var users = usersRepo.GetOrganizationAll(organizationId).ToList();

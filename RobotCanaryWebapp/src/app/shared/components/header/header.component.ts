@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UserAvatarService } from '../../../core/services/user-avatar.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { UserAvatarService } from '../../../core/services/user-avatar.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  @Input() title: string;
 
   constructor(public avatarSvc: UserAvatarService) { }
 
