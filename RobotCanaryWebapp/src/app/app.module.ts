@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
@@ -23,7 +22,6 @@ export function initApiConfiguration(config: ApiConfiguration): Function {
     BrowserModule,
     CoreModule,
     PagesModule,
-    BrowserAnimationsModule,
     RouterModule.forRoot([
       {
         path: 'implicit/callback',

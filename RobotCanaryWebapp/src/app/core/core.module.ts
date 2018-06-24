@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { NavSidebarComponent } from './components/nav-sidebar/nav-sidebar.component';
 import { OktaAuthModule, OktaCallbackComponent } from '@okta/okta-angular';
@@ -16,6 +18,8 @@ const config = {
 
 @NgModule({
   imports: [
+    FlexLayoutModule,
+    BrowserAnimationsModule,
     RouterModule,
     HttpClientModule,
     CommonModule,
