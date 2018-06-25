@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { FormsModule } from '@angular/forms';
 import { CustomMaterialModule } from './material.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 const components = [
   HeaderComponent
@@ -12,14 +13,17 @@ const components = [
   imports: [
     CommonModule,
     FormsModule,
-    CustomMaterialModule
+    CustomMaterialModule,
+    FlexLayoutModule
   ],
   declarations: [
     ...components
   ],
   exports: [
     ...components,
-    FormsModule
+    FormsModule,
+    CustomMaterialModule,
+    FlexLayoutModule
   ]
 })
 export class SharedModule { }

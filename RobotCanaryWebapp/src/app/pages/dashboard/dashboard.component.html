@@ -1,33 +1,35 @@
 <app-header title="Dashboard"></app-header>
 
-<div class="container mt-4">
+<div class="page">
 
   <h2>My Surveys</h2>
 
-  <div class="row mt-4 stats-row">
+  <div class="page-panel" fxLayout="row" fxLayoutAlign="start stretch" fxLayoutGap="20px">
 
-    <div class="col-4 right-divider">
-      <h3 class="pb-3">Getting Started</h3>
-      <a routerLink="../survey/start-new" class="btn btn-outline-primary btn-block">
+    <!-- Getting started panel -->
+    <div class="right-divider" fxFlex="33" fxLayout="column">
+      <h3>Getting Started</h3>
+      <a mat-button routerLink="../survey/start-new" color="primary">
         <i class="mdi mdi-format-list-checks"></i>
         Start New Survey
       </a>
-      <button class="btn btn-secondary btn-block">
+      <button mat-button>
         <i class="mdi mdi-email"></i>
         Send Survey
       </button>
-      <button class="btn btn-secondary btn-block">
+      <button mat-button>
         <i class="mdi mdi-reminder"></i>
         Send Reminders
       </button>
-      <button class="btn btn-secondary btn-block">
+      <button mat-button>
         <i class="mdi mdi-file-find"></i>
         View Results
       </button>
     </div>
 
-    <div class="col-4 right-divider">
-      <h3 class="pb-2">Stats</h3>
+    <!-- Stats panel -->
+    <div class="right-divider" fxFlex="33">
+      <h3>Stats</h3>
       <ul class="list-group list-group-flush stats-list">
         <li class="d-flex align-items-center">
           <span class="badge badge-primary badge-pill">14</span>
@@ -42,12 +44,12 @@
           Closed Campaigns
         </li>
       </ul>
-
       <a href="/reporting">Go to Reporting</a>
     </div>
 
-    <div class="col-4">
-      <h3 class="pb-2">Pending</h3>
+    <!-- Pending panel -->
+    <div>
+      <h3>Pending</h3>
       <p class="text-mute">None pending at this time</p>
     </div>
 

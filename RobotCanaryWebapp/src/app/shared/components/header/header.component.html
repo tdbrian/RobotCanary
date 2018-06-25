@@ -1,5 +1,5 @@
-<section class="wrapper d-flex justify-content-center">
-  <div class="d-flex justify-content-between container pt-3 pb-3">
+<div id="wrapper" fxLayout="column" fxLayoutAlign="space-between">
+  <div fxLayout="row" fxLayoutAlign="space-between start">
     <div>
       <div class="company-dropdown">AppRiver</div>
       <h1>{{title}}</h1>
@@ -8,4 +8,4 @@
       <img class="avatar" [src]="avatarSvc?.currentUserAvatar?.imgUrl">
     </div>
   </div>
-</section>
+</div>

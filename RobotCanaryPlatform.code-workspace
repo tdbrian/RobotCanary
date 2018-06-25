@@ -9,7 +9,10 @@
 	],
 	"settings": {
 		"cSpell.words": [
-			"Okta"
+			"Datepicker",
+			"Okta",
+			"Paginator",
+			"Sidenav"
 		]
 	}
 }
