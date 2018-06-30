@@ -25,7 +25,21 @@
       <a href="#" class="nav-item">
         <i class="mdi mdi-cellphone-iphone"></i>Mobile Apps</a>
       <a href="#" class="nav-item">
-        <i class="mdi mdi-rss"></i>Services</a>
+        <i class="mdi mdi-console"></i>Console Apps</a>
+      <a href="#" class="nav-item">
+        <i class="mdi mdi-desktop-mac"></i>Desktop Apps</a>
+    </div>
+  </div>
+
+  <div class="nav-area" [ngClass]="{open: isOpen('services')}" (click)="toggleTab('services')">
+    <div class="header">Services</div>
+    <div class="nav-sub" [@openClose]="openTab === 'services'">
+      <a href="#" class="nav-item">
+        <i class="mdi mdi-signal-variant"></i>Our Public APIs</a>
+      <a href="#" class="nav-item">
+        <i class="mdi mdi-satellite-uplink"></i>External Integrations</a>
+      <a href="#" class="nav-item">
+        <i class="mdi mdi-database-import"></i>External Data</a>
     </div>
   </div>
 
@@ -33,23 +47,15 @@
     <div class="header">State</div>
     <div class="nav-sub" [@openClose]="openTab === 'state'">
       <a href="#" class="nav-item">
-        <i class="mdi mdi-cube-unfolded"></i>Object Blueprints</a>
+        <i class="mdi mdi-flash-circle"></i>System Actions</a>
+      <a href="#" class="nav-item">
+        <i class="mdi mdi-cube-unfolded"></i>Domain Entities</a>
+      <a href="#" class="nav-item">
+        <i class="mdi mdi-bullhorn"></i>System Events</a>
       <a href="#" class="nav-item">
         <i class="mdi mdi-layers"></i>State Projections</a>
       <a href="#" class="nav-item">
-        <i class="mdi mdi-table-column-remove"></i>Data Migrations</a>
-      <a href="#" class="nav-item">
         <i class="mdi mdi-table-large"></i>Data Explorer</a>
-    </div>
-  </div>
-
-  <div class="nav-area" [ngClass]="{open: isOpen('actions')}" (click)="toggleTab('actions')">
-    <div class="header">Actions</div>
-    <div class="nav-sub" [@openClose]="openTab === 'actions'">
-      <a href="#" class="nav-item">
-        <i class="mdi mdi-layers"></i>Blueprints</a>
-      <a href="#" class="nav-item">
-        <i class="mdi mdi-account-multiple"></i>Data</a>
     </div>
   </div>
 
@@ -57,9 +63,9 @@
     <div class="header">Identities</div>
     <div class="nav-sub" [@openClose]="openTab === 'identity'">
       <a href="#" class="nav-item">
-        <i class="mdi mdi-layers"></i>Users</a>
+        <i class="mdi mdi-account-group"></i>Users</a>
       <a href="#" class="nav-item">
-        <i class="mdi mdi-account-multiple"></i>Permissions</a>
+        <i class="mdi mdi-account-key"></i>Permissions</a>
     </div>
   </div>
 
@@ -67,7 +73,13 @@
     <div class="header">Operations</div>
     <div class="nav-sub" [@openClose]="openTab === 'operations'">
       <a href="#" class="nav-item">
-        <i class="mdi mdi-help"></i>Status</a>
+        <i class="mdi mdi-gauge"></i>Status</a>
+      <a href="#" class="nav-item">
+        <i class="mdi mdi-timer"></i>Performance Insights</a>
+      <a href="#" class="nav-item">
+        <i class="mdi mdi-file-compare"></i>Diagnostics</a>
+      <a href="#" class="nav-item">
+        <i class="mdi mdi-server-security"></i>Configuration</a>
     </div>
   </div>
 
@@ -75,13 +87,11 @@
     <div class="header">Analytics</div>
     <div class="nav-sub" [@openClose]="openTab === 'analytics'">
       <a href="#" class="nav-item">
-        <i class="mdi mdi-cloud-search-outline"></i>Performance Insights</a>
+          <i class="mdi mdi-file-chart"></i>Reporting</a>
       <a href="#" class="nav-item">
-        <i class="mdi mdi-file-import"></i>Domain Analytics</a>
+        <i class="mdi mdi-finance"></i>Domain Analytics</a>
       <a href="#" class="nav-item">
-        <i class="mdi mdi-file-export"></i>Diagnostics</a>
-      <a href="#" class="nav-item">
-        <i class="mdi mdi-delete-sweep"></i>Auditing</a>
+        <i class="mdi mdi-book-multiple"></i>Auditing</a>
     </div>
   </div>
 
@@ -91,7 +101,7 @@
       <a href="#" class="nav-item">
         <i class="mdi mdi-message-settings-variant"></i>Company Settings</a>
       <a href="#" class="nav-item">
-        <i class="mdi mdi-account-card-details"></i>Users</a>
+        <i class="mdi mdi-lifebuoy"></i>Support</a>
       <a href="#" class="nav-item">
         <i class="mdi mdi-credit-card-settings"></i>Billing</a>
     </div>
