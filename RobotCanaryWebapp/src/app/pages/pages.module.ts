@@ -9,6 +9,11 @@ import { SaveAppComponent } from './apps/save-app/save-app.component';
 import { ListAppsComponent } from './apps/list-apps/list-apps.component';
 import { EndpointsComponent } from './endpoints/endpoints.component';
 import { EntitiesComponent } from './entities/entities.component';
+import { ApplicationsComponent } from './applications/applications.component';
+import { UserInterfacesComponent } from './user-interfaces/user-interfaces.component';
+import { AppsListComponent } from './user-interfaces/apps/apps-list/apps-list.component';
+import { ExternalServicesComponent } from './integrations/external-services/external-services.component';
+import { ExternalDataComponent } from './integrations/external-data/external-data.component';
 
 const routes: Routes = [];
 
@@ -19,6 +24,6 @@ const routes: Routes = [];
     RouterModule.forChild(routes),
     DashboardModule
   ],
-  declarations: [MissingPageComponent, SaveAppComponent, ListAppsComponent, EndpointsComponent, EntitiesComponent]
+  declarations: [MissingPageComponent, SaveAppComponent, ListAppsComponent, EndpointsComponent, EntitiesComponent, ApplicationsComponent, UserInterfacesComponent, AppsListComponent, ExternalServicesComponent, ExternalDataComponent]
 })
 export class PagesModule { }

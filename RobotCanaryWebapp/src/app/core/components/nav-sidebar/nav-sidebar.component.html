@@ -17,29 +17,17 @@
     </a>
   </div> -->
 
-  <div class="nav-area" [ngClass]="{open: isOpen('applications')}" (click)="toggleTab('applications')">
-    <div class="header">Apps</div>
-    <div class="nav-sub" [@openClose]="openTab === 'applications'">
+  <div class="nav-area" [ngClass]="{open: isOpen('user-interfaces')}" (click)="toggleTab('user-interfaces')">
+    <div class="header">User Interfaces</div>
+    <div class="nav-sub" [@openClose]="openTab === 'user-interfaces'">
       <a href="#" class="nav-item">
-        <i class="mdi mdi-application"></i>Browser Apps</a>
+        <i class="mdi mdi-application"></i>Applications</a>
       <a href="#" class="nav-item">
-        <i class="mdi mdi-cellphone-iphone"></i>Mobile Apps</a>
+        <i class="mdi mdi-view-dashboard-variant"></i>UI Components</a>
       <a href="#" class="nav-item">
-        <i class="mdi mdi-console"></i>Console Apps</a>
+        <i class="mdi mdi-palette-swatch"></i>Themes</a>
       <a href="#" class="nav-item">
-        <i class="mdi mdi-desktop-mac"></i>Desktop Apps</a>
-    </div>
-  </div>
-
-  <div class="nav-area" [ngClass]="{open: isOpen('services')}" (click)="toggleTab('services')">
-    <div class="header">Services</div>
-    <div class="nav-sub" [@openClose]="openTab === 'services'">
-      <a href="#" class="nav-item">
-        <i class="mdi mdi-signal-variant"></i>Our Public APIs</a>
-      <a href="#" class="nav-item">
-        <i class="mdi mdi-satellite-uplink"></i>External Integrations</a>
-      <a href="#" class="nav-item">
-        <i class="mdi mdi-database-import"></i>External Data</a>
+        <i class="mdi mdi-access-point"></i>Public APIs</a>
     </div>
   </div>
 
@@ -59,13 +47,27 @@
     </div>
   </div>
 
-  <div class="nav-area" [ngClass]="{open: isOpen('identity')}" (click)="toggleTab('identity')">
+  <div class="nav-area" [ngClass]="{open: isOpen('identities')}" (click)="toggleTab('identities')">
     <div class="header">Identities</div>
-    <div class="nav-sub" [@openClose]="openTab === 'identity'">
+    <div class="nav-sub" [@openClose]="openTab === 'identities'">
       <a href="#" class="nav-item">
         <i class="mdi mdi-account-group"></i>Users</a>
       <a href="#" class="nav-item">
+        <i class="mdi mdi-tag-multiple"></i>Roles</a>
+      <a href="#" class="nav-item">
         <i class="mdi mdi-account-key"></i>Permissions</a>
+      <a href="#" class="nav-item">
+        <i class="mdi mdi-key-change"></i>Auth Alternatives</a>
+    </div>
+  </div>
+
+  <div class="nav-area" [ngClass]="{open: isOpen('integrations')}" (click)="toggleTab('integrations')">
+    <div class="header">Integrations</div>
+    <div class="nav-sub" [@openClose]="openTab === 'integrations'">
+      <a href="#" class="nav-item">
+        <i class="mdi mdi-satellite-uplink"></i>External Services</a>
+      <a href="#" class="nav-item">
+        <i class="mdi mdi-database-import"></i>External Data</a>
     </div>
   </div>
 
@@ -79,6 +81,10 @@
       <a href="#" class="nav-item">
         <i class="mdi mdi-file-compare"></i>Diagnostics</a>
       <a href="#" class="nav-item">
+        <i class="mdi mdi-flag-checkered"></i>Feature Flags</a>
+      <a href="#" class="nav-item">
+        <i class="mdi mdi-rocket"></i>Deployments</a>
+      <a href="#" class="nav-item">
         <i class="mdi mdi-server-security"></i>Configuration</a>
     </div>
   </div>
@@ -87,7 +93,7 @@
     <div class="header">Analytics</div>
     <div class="nav-sub" [@openClose]="openTab === 'analytics'">
       <a href="#" class="nav-item">
-          <i class="mdi mdi-file-chart"></i>Reporting</a>
+        <i class="mdi mdi-file-chart"></i>Reporting</a>
       <a href="#" class="nav-item">
         <i class="mdi mdi-finance"></i>Domain Analytics</a>
       <a href="#" class="nav-item">
@@ -113,7 +119,7 @@
     <div class="upgrade-group">
       <div class="plan-details">
         <div class="plan">Free Plan $0/month</div>
-        <div class="usage">0/100 Surveys Sent</div>
+        <div class="usage">0% Used</div>
       </div>
       <button class="header">UPGRADE</button>
     </div>
