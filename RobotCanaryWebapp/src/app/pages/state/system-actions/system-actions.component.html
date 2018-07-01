@@ -1,3 +1,32 @@
-<p>
-  system-actions works!
-</p>
+<app-header title="System Actions"></app-header>
+
+<div class="page">
+  <div class="page-header">
+    <div>
+      <h2>Actions List</h2>
+    </div>
+    <div>
+      <button mat-button mat-raised-button color="primary">
+        <i class="mdi mdi-plus"></i>CREATE ACTION</button>
+    </div>
+  </div>
+
+  <div class="page-panel" fxLayout="row" fxLayoutGap="20px">
+    <div fxFlex="60" fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="20px">
+      <table mat-table [dataSource]="dataSource" multiTemplateDataRows>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let element">{{element.name}}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+      </table>
+    </div>
+    <div fxFlex="40" fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="20px">
+      Info
+    </div>
+  </div>
+</div>

@@ -61,6 +61,12 @@ h3,
   padding: 20px 80px;
 }
 
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .page-panel {
   background-color: white;
   border-radius: 4px;
@@ -68,5 +74,8 @@ h3,
   h3 {
     padding-top: 0;
     margin-top: 0;
+  }
+  table {
+    width: 100%;
   }
 }

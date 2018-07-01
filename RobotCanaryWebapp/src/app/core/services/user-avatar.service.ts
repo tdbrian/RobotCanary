@@ -27,6 +27,10 @@ export class UserAvatarService {
     const imgUrl = res.match(/(?<=src=')(.*?)(?='\stitle=)/g);
     const title = res.match(/(?<=title=')(.*?)(?='\sclass=)/g);
 
+    if (!imgUrl) {
+      return undefined;
+    }
+
     if (!imgUrl.length || !title.length) {
       return undefined;
     }
