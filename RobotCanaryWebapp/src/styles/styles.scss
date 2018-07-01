@@ -1,6 +1,5 @@
 @import 'mdi-icon-tweaks';
 @import 'variables';
-
 body {
   background-color: #f6f6f6;
   font-family: 'Roboto', sans-serif;
@@ -25,6 +24,14 @@ h3,
   font-weight: 500;
 }
 
+.w100 {
+  width: 100%;
+}
+
+.p0 {
+  padding: 0;
+}
+
 .error-card {
   display: flex;
   flex-direction: column;
@@ -44,7 +51,6 @@ h3,
     text-shadow: 4px 5px 1px #b3bbbf;
     color: #1a222b;
   }
-
   .text-muted {
     color: #99abb4 !important;
     margin-top: 0px;
@@ -75,7 +81,17 @@ h3,
     padding-top: 0;
     margin-top: 0;
   }
-  table {
-    width: 100%;
+}
+
+table {
+  width: 100%;
+  color: #5d6973;
+  .mat-cell,
+  .mat-footer-cell {
+    color: #5d6973 !important;
+    border-bottom-color: rgba(0, 0, 0, .05) !important;
+  }
+  .mat-header-cell {
+    text-transform: uppercase;
   }
 }

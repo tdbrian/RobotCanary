@@ -13,7 +13,7 @@ export class SystemActionsComponent implements OnInit {
     { name: 'Generate All Company Invoices', tags: ['Billing', 'Accounting'], payload: 'Generate Invoice' },
   ];
 
-  columnsToDisplay = ['name'];
+  columnsToDisplay = ['name', 'payload', 'tags'];
 
   constructor() { }
 
