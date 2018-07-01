@@ -40,12 +40,17 @@
       </table>
     </div>
 
-    <div fxFlex="40" fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="20px" class="page-panel">
+    <div fxFlex="40" fxLayout="column" fxLayoutGap="20px" class="page-panel">
       <h3>Create Action</h3>
-      <mat-form-field>
-        <input matInput placeholder="Name">
-        <mat-hint>Can contain spaces. Do not include 'Action' in the name.</mat-hint>
-      </mat-form-field>
+      <form #actionForm="ngForm" (submit)="save()">
+        <mat-form-field hintLabel="Can contain spaces. Do not include 'Action' in the name.">
+          <input #name="ngModel" matInput name="name" placeholder="Name" [(ngModel)]="model.name" required maxlength="250" minlength="2">
+          <mat-error [hidden]="name.valid || name.pristine">Name is invalid. Must be 2-250 characters.</mat-error>
+        </mat-form-field>
+        <div class="form-buttons-row">
+          <button type="submit" [disabled]="actionForm.invalid" mat-raised-button color="primary">Save</button>
+        </div>
+      </form>
     </div>
 
   </div>

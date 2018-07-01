@@ -12,7 +12,8 @@
 			"Datepicker",
 			"Okta",
 			"Paginator",
-			"Sidenav"
+			"Sidenav",
+			"Validators"
 		]
 	}
 }

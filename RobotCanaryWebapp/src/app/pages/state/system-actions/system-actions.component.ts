@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-system-actions',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class SystemActionsComponent implements OnInit {
+  model = {
+    name: ''
+  };
 
   dataSource = [
     { name: 'Edit User', tags: ['Users', 'Admin'], payload: 'Edit User' },
@@ -18,6 +22,10 @@ export class SystemActionsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  save() {
+    console.dir(this.model);
   }
 
 }

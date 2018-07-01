@@ -4,6 +4,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FormsModule } from '@angular/forms';
 import { CustomMaterialModule } from './material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material';
 
 const components = [
   HeaderComponent
@@ -24,6 +25,9 @@ const components = [
     FormsModule,
     CustomMaterialModule,
     FlexLayoutModule
+  ],
+  providers: [
+    {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
   ]
 })
 export class SharedModule { }
