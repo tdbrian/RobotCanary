@@ -109,6 +109,7 @@ $nav-area-color: #62787f;
     text-decoration: none;
     color: #42565d;
     width: 100%;
+    &.active,
     &:hover {
       background-color: #dadada;
       color: $active-color;

@@ -5,44 +5,32 @@
       <b>Flask</b>Studio</div>
   </div>
 
-  <!-- <div class="nav-area">
-    <a class="header highlight-header" routerLink="/survey/start-new" routerLinkActive="active">
-      <i class="mdi mdi-format-list-checks"></i>Designer
-    </a>
-  </div>
-
-  <div class="nav-area">
-    <a class="header" [routerLink]="['/dashboard']" routerLinkActive="active">
-      <i class="mdi mdi-speedometer"></i>Dashboard
-    </a>
-  </div> -->
-
   <div class="nav-area" [ngClass]="{open: isOpen('user-interfaces')}" (click)="toggleTab('user-interfaces')">
     <div class="header">User Interfaces</div>
     <div class="nav-sub" [@openClose]="openTab === 'user-interfaces'">
-      <a href="#" class="nav-item">
+      <a routerLink="/user-interfaces/applications" routerLinkActive="active" class="nav-item">
         <i class="mdi mdi-application"></i>Applications</a>
-      <a href="#" class="nav-item">
+      <a routerLink="/user-interfaces/ui-components" routerLinkActive="active" class="nav-item">
         <i class="mdi mdi-view-dashboard-variant"></i>UI Components</a>
-      <a href="#" class="nav-item">
+      <a routerLink="/user-interfaces/themes" routerLinkActive="active" class="nav-item">
         <i class="mdi mdi-palette-swatch"></i>Themes</a>
-      <a href="#" class="nav-item">
-        <i class="mdi mdi-access-point"></i>Public APIs</a>
     </div>
   </div>
 
   <div class="nav-area" [ngClass]="{open: isOpen('state')}" (click)="toggleTab('state')">
     <div class="header">State</div>
     <div class="nav-sub" [@openClose]="openTab === 'state'">
-      <a href="#" class="nav-item">
+      <a routerLink="/state/system-actions" routerLinkActive="active" class="nav-item">
         <i class="mdi mdi-flash-circle"></i>System Actions</a>
-      <a href="#" class="nav-item">
+      <a routerLink="/state/domain-entities" routerLinkActive="active" class="nav-item">
         <i class="mdi mdi-cube-unfolded"></i>Domain Entities</a>
-      <a href="#" class="nav-item">
+      <a routerLink="/state/system-events" routerLinkActive="active" class="nav-item">
         <i class="mdi mdi-bullhorn"></i>System Events</a>
-      <a href="#" class="nav-item">
+      <a routerLink="/state/state-projections" routerLinkActive="active" class="nav-item">
         <i class="mdi mdi-layers"></i>State Projections</a>
-      <a href="#" class="nav-item">
+      <a routerLink="/state/public-apis" routerLinkActive="active" class="nav-item">
+        <i class="mdi mdi-access-point"></i>Public APIs</a>
+      <a routerLink="/state/data-explorer" routerLinkActive="active" class="nav-item">
         <i class="mdi mdi-table-large"></i>Data Explorer</a>
     </div>
   </div>
@@ -50,13 +38,13 @@
   <div class="nav-area" [ngClass]="{open: isOpen('identities')}" (click)="toggleTab('identities')">
     <div class="header">Identities</div>
     <div class="nav-sub" [@openClose]="openTab === 'identities'">
-      <a href="#" class="nav-item">
+      <a routerLink="/identities/users" routerLinkActive="active" class="nav-item">
         <i class="mdi mdi-account-group"></i>Users</a>
-      <a href="#" class="nav-item">
+      <a routerLink="/identities/roles" routerLinkActive="active" class="nav-item">
         <i class="mdi mdi-tag-multiple"></i>Roles</a>
-      <a href="#" class="nav-item">
+      <a routerLink="/identities/permissions" routerLinkActive="active" class="nav-item">
         <i class="mdi mdi-account-key"></i>Permissions</a>
-      <a href="#" class="nav-item">
+      <a routerLink="/identities/auth-alternatives" routerLinkActive="active" class="nav-item">
         <i class="mdi mdi-key-change"></i>Auth Alternatives</a>
     </div>
   </div>
@@ -64,9 +52,9 @@
   <div class="nav-area" [ngClass]="{open: isOpen('integrations')}" (click)="toggleTab('integrations')">
     <div class="header">Integrations</div>
     <div class="nav-sub" [@openClose]="openTab === 'integrations'">
-      <a href="#" class="nav-item">
+      <a routerLink="/integrations/external-services" routerLinkActive="active" class="nav-item">
         <i class="mdi mdi-satellite-uplink"></i>External Services</a>
-      <a href="#" class="nav-item">
+      <a routerLink="/integrations/external-data" routerLinkActive="active" class="nav-item">
         <i class="mdi mdi-database-import"></i>External Data</a>
     </div>
   </div>
@@ -74,17 +62,17 @@
   <div class="nav-area" [ngClass]="{open: isOpen('operations')}" (click)="toggleTab('operations')">
     <div class="header">Operations</div>
     <div class="nav-sub" [@openClose]="openTab === 'operations'">
-      <a href="#" class="nav-item">
+      <a routerLink="/operations/status" routerLinkActive="active" class="nav-item">
         <i class="mdi mdi-gauge"></i>Status</a>
-      <a href="#" class="nav-item">
+      <a routerLink="/operations/performance-insights" routerLinkActive="active" class="nav-item">
         <i class="mdi mdi-timer"></i>Performance Insights</a>
-      <a href="#" class="nav-item">
+      <a routerLink="/operations/diagnostics" routerLinkActive="active" class="nav-item">
         <i class="mdi mdi-file-compare"></i>Diagnostics</a>
-      <a href="#" class="nav-item">
+      <a routerLink="/operations/feature-flags" routerLinkActive="active" class="nav-item">
         <i class="mdi mdi-flag-checkered"></i>Feature Flags</a>
-      <a href="#" class="nav-item">
+      <a routerLink="/operations/deployments" routerLinkActive="active" class="nav-item">
         <i class="mdi mdi-rocket"></i>Deployments</a>
-      <a href="#" class="nav-item">
+      <a routerLink="/operations/configuration" routerLinkActive="active" class="nav-item">
         <i class="mdi mdi-server-security"></i>Configuration</a>
     </div>
   </div>
@@ -92,11 +80,11 @@
   <div class="nav-area" [ngClass]="{open: isOpen('analytics')}" (click)="toggleTab('analytics')">
     <div class="header">Analytics</div>
     <div class="nav-sub" [@openClose]="openTab === 'analytics'">
-      <a href="#" class="nav-item">
+      <a routerLink="/analytics/reporting" routerLinkActive="active" class="nav-item">
         <i class="mdi mdi-file-chart"></i>Reporting</a>
-      <a href="#" class="nav-item">
+      <a routerLink="/analytics/domain-analytics" routerLinkActive="active" class="nav-item">
         <i class="mdi mdi-finance"></i>Domain Analytics</a>
-      <a href="#" class="nav-item">
+      <a routerLink="/analytics/auditing" routerLinkActive="active" class="nav-item">
         <i class="mdi mdi-book-multiple"></i>Auditing</a>
     </div>
   </div>
@@ -104,11 +92,11 @@
   <div class="nav-area" [ngClass]="{open: isOpen('admin')}" (click)="toggleTab('admin')">
     <div class="header">Admin</div>
     <div class="nav-sub" [@openClose]="openTab === 'admin'">
-      <a href="#" class="nav-item">
+      <a routerLink="/admin/company-settings" routerLinkActive="active" class="nav-item">
         <i class="mdi mdi-message-settings-variant"></i>Company Settings</a>
-      <a href="#" class="nav-item">
+      <a routerLink="/admin/support" routerLinkActive="active" class="nav-item">
         <i class="mdi mdi-lifebuoy"></i>Support</a>
-      <a href="#" class="nav-item">
+      <a routerLink="/admin/billing" routerLinkActive="active" class="nav-item">
         <i class="mdi mdi-credit-card-settings"></i>Billing</a>
     </div>
   </div>

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UiComponentsComponent } from './ui-components/ui-components.component';
 import { ThemesComponent } from './themes/themes.component';
-import { SystemActionsComponent } from '../state/system-actions/system-actions.component';
 import { SharedModule } from '../../shared/shared.module';
 import { RouterModule, Routes } from '@angular/router';
 import { AppsListComponent } from './apps/apps-list/apps-list.component';
@@ -24,6 +23,6 @@ const routes: Routes = [
     SharedModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [AppsListComponent, UiComponentsComponent, ThemesComponent, SystemActionsComponent]
+  declarations: [AppsListComponent, UiComponentsComponent, ThemesComponent]
 })
 export class UserInterfacesModule { }
