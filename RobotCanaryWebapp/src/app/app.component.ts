@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
   async ngOnInit() {
     this.isAuthenticated = await this.oktaAuth.isAuthenticated();
     if (!this.isAuthenticated) {
-      this.oktaAuth.loginRedirect('/dashboard');
+      this.oktaAuth.loginRedirect('/applications');
     }
 
     await this.avatarService.setCurrentUserAvatar();

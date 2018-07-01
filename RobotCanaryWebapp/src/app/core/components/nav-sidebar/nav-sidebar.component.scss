@@ -107,15 +107,19 @@ $nav-area-color: #62787f;
     padding-bottom: $sub-nav-padding;
     font-weight: 500;
     text-decoration: none;
-    color: #62787f;
+    color: #42565d;
     width: 100%;
     &:hover {
       background-color: #dadada;
       color: $active-color;
+      i {
+        color: $active-color;
+      }
     }
     i {
       font-size: 20px;
       padding-right: 10px;
+      // color: lighten($color: #42565d, $amount: 20)
     }
   }
 }

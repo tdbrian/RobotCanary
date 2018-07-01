@@ -8,7 +8,7 @@ import { expandableAnimation } from 'src/app/shared/utils/animations';
   animations: expandableAnimation
 })
 export class NavSidebarComponent implements OnInit {
-  openTab = 'applications';
+  openTab = 'user-interfaces';
 
   constructor() { }
 

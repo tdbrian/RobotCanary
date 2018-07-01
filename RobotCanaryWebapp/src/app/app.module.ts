@@ -29,7 +29,7 @@ export function initApiConfiguration(config: ApiConfiguration): Function {
       },
       {
         path: '',
-        redirectTo: '/dashboard',
+        redirectTo: '/user-interfaces',
         pathMatch: 'full'
       },
       {
