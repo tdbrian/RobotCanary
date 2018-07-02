@@ -12,6 +12,7 @@ import { OperationsModule } from './operations/operations.module';
 import { AnalyticsModule } from './analytics/analytics.module';
 import { AdminModule } from './admin/admin.module';
 import { ProfileModule } from './profile/profile.module';
+import { ApiModule } from '../api/api.module';
 
 const routes: Routes = [];
 
@@ -19,6 +20,7 @@ const routes: Routes = [];
   imports: [
     CommonModule,
     SharedModule,
+    ApiModule,
     RouterModule.forChild(routes),
     UserInterfacesModule,
     StateModule,

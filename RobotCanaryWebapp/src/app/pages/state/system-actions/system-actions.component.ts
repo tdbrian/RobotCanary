@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { SystemActionsService } from '../../../api/services';
+import { SystemActionEntity } from '../../../api/models';
 
 @Component({
   selector: 'app-system-actions',
@@ -7,25 +8,36 @@ import { FormControl, Validators } from '@angular/forms';
   styles: []
 })
 export class SystemActionsComponent implements OnInit {
-  model = {
-    name: ''
+  loading = true;
+  errorOccurred = false;
+  dataSource: SystemActionEntity[] = [];
+  model: SystemActionEntity = {
+    name: '',
+    domainTags: []
   };
-
-  dataSource = [
-    { name: 'Edit User', tags: ['Users', 'Admin'] },
-    { name: 'New User', tags: ['Users', 'Admin'] },
-    { name: 'Generate All Company Invoices', tags: ['Billing', 'Accounting'] },
-  ];
 
   columnsToDisplay = ['name', 'tags'];
 
-  constructor() { }
+  constructor(private systemActionsSvc: SystemActionsService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    await this.fetchSystemActions();
+  }
+
+  async fetchSystemActions() {
+    this.loading = true;
+    this.errorOccurred = false;
+    try {
+      this.dataSource = await this.systemActionsSvc.ApiV1SystemActionsOrganizationByOrganizationIdGet('').toPromise();
+    } catch (error) {
+      console.error(error);
+      this.errorOccurred = true;
+    } finally {
+      this.loading = false;
+    }
   }
 
   save() {
     console.dir(this.model);
   }
-
 }
