@@ -1,49 +1,36 @@
-﻿using Dapper;
-using Dapper.Contrib.Extensions;
-using Microsoft.Extensions.Configuration;
-using MySql.Data.MySqlClient;
-using RobotCanary.Controllers;
-using RobotCanary.ExternalServices.Okta;
-using RobotCanary.Utilities;
+﻿using MongoDB.Driver;
+using FlaskStudio.Controllers;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System;
+using FlaskStudio.ExternalServices.Okta;
 
-namespace RobotCanary.Users
+namespace FlaskStudio.Users
 {
     public class UsersRepo
     {
-        private readonly string connString;
+        private IMongoCollection<UserEntity> usersCollection;
         private readonly IAuthUserManager authUserManager;
 
-        public UsersRepo(IConfiguration config, IAuthUserManager authUserManager)
+        public UsersRepo(IMongoDatabase mongoDb, IAuthUserManager authUserManager)
         {
-            connString = config.GetConnectionString(RobotCanaeryDatabase.Name);
+            usersCollection = mongoDb.GetCollection<UserEntity>("users");
             this.authUserManager = authUserManager;
         }
 
-        public ICollection<UserEntity> GetOrganizationAll(int organizationId)
+        public List<UserEntity> GetOrganizationAll(Guid organizationId)
         {
-            using (MySqlConnection conn = new MySqlConnection(connString))
-            {
-                var users = conn.Query<UserEntity>("select * from users where Active < 1 and OrganizationId = @OrganizationId", new { OrganizationId = organizationId });
-                return users.ToList();
-            }
+            return usersCollection.AsQueryable()
+                .Where(u => u.IsActive && u.OrganizationId == organizationId)
+                .ToList();
         }
 
-        public bool TryGetByEmail(string email, out UserEntity user)
+        public UserEntity GetByEmail(string email, Guid organizationId)
         {
-            using (MySqlConnection conn = new MySqlConnection(connString))
-            {
-                var usersResult = conn.Query<UserEntity>("select * from users where Active < 1 and Email = @Email", new { Email = email });
-                if (!usersResult.Any())
-                {
-                    user = null;
-                    return false;
-                }
-                user = usersResult.FirstOrDefault();
-                return true;
-            }
+            return usersCollection.AsQueryable()
+                .Where(u => u.IsActive && u.OrganizationId == organizationId && u.Email == email)
+                .FirstOrDefault();
         }
 
         public async Task RegisterAdmin(RegisterUserRequest registerUser)
@@ -52,11 +39,9 @@ namespace RobotCanary.Users
             await authUserManager.AddUser(user, registerUser.Password);
 
             user.EmailVerified = false;
-            user.Active = false;
-            using (MySqlConnection conn = new MySqlConnection(connString))
-            {
-                conn.Insert(user);
-            }
+            user.IsActive = false;
+
+            await usersCollection.InsertOneAsync(user);
         }
     }
 }

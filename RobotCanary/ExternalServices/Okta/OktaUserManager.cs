@@ -1,8 +1,8 @@
 ﻿using Okta.Sdk;
-using RobotCanary.Users;
+using FlaskStudio.Users;
 using System.Threading.Tasks;
 
-namespace RobotCanary.ExternalServices.Okta
+namespace FlaskStudio.ExternalServices.Okta
 {
     public class OktaUserManager : IAuthUserManager
     {

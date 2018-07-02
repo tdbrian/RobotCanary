@@ -12,12 +12,12 @@ export class SystemActionsComponent implements OnInit {
   };
 
   dataSource = [
-    { name: 'Edit User', tags: ['Users', 'Admin'], payload: 'Edit User' },
-    { name: 'New User', tags: ['Users', 'Admin'], payload: 'New User' },
-    { name: 'Generate All Company Invoices', tags: ['Billing', 'Accounting'], payload: 'Generate Invoice' },
+    { name: 'Edit User', tags: ['Users', 'Admin'] },
+    { name: 'New User', tags: ['Users', 'Admin'] },
+    { name: 'Generate All Company Invoices', tags: ['Billing', 'Accounting'] },
   ];
 
-  columnsToDisplay = ['name', 'payload', 'tags'];
+  columnsToDisplay = ['name', 'tags'];
 
   constructor() { }
 

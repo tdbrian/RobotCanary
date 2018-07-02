@@ -8,8 +8,9 @@ import { ApiConfiguration } from '../api-configuration';
 import { Observable } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
 
+import { SystemActionEntity } from '../models/system-action-entity';
 @Injectable()
-class ValuesService extends BaseService {
+class SystemActionsService extends BaseService {
   constructor(
     config: ApiConfiguration,
     http: HttpClient
@@ -18,15 +19,17 @@ class ValuesService extends BaseService {
   }
 
   /**
+   * @param organizationId undefined
    * @return Success
    */
-  ApiValuesGetResponse(): Observable<HttpResponse<Array<string>>> {
+  ApiV1SystemActionsOrganizationByOrganizationIdGetResponse(organizationId: string): Observable<HttpResponse<Array<SystemActionEntity>>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
+
     let req = new HttpRequest<any>(
       'GET',
-      this.rootUrl + `/api/Values`,
+      this.rootUrl + `/api/v1/systemActions/organization/${organizationId}`,
       __body,
       {
         headers: __headers,
@@ -38,116 +41,34 @@ class ValuesService extends BaseService {
       filter(_r => _r instanceof HttpResponse),
       map(_r => {
         let _resp = _r as HttpResponse<any>;
-        let _body: Array<string> = null;
-        _body = _resp.body as Array<string>;
-        return _resp.clone({body: _body}) as HttpResponse<Array<string>>;
+        let _body: Array<SystemActionEntity> = null;
+        _body = _resp.body as Array<SystemActionEntity>;
+        return _resp.clone({body: _body}) as HttpResponse<Array<SystemActionEntity>>;
       })
     );
   }
 
   /**
+   * @param organizationId undefined
    * @return Success
    */
-  ApiValuesGet(): Observable<Array<string>> {
-    return this.ApiValuesGetResponse().pipe(
+  ApiV1SystemActionsOrganizationByOrganizationIdGet(organizationId: string): Observable<Array<SystemActionEntity>> {
+    return this.ApiV1SystemActionsOrganizationByOrganizationIdGetResponse(organizationId).pipe(
       map(_r => _r.body)
     );
   }
 
   /**
-   * @param value undefined
+   * @param systemAction undefined
    */
-  ApiValuesPostResponse(value?: string): Observable<HttpResponse<void>> {
+  ApiV1SystemActionsPutResponse(systemAction?: SystemActionEntity): Observable<HttpResponse<void>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
-    __body = value;
-    let req = new HttpRequest<any>(
-      'POST',
-      this.rootUrl + `/api/Values`,
-      __body,
-      {
-        headers: __headers,
-        params: __params,
-        responseType: 'text'
-      });
-
-    return this.http.request<any>(req).pipe(
-      filter(_r => _r instanceof HttpResponse),
-      map(_r => {
-        let _resp = _r as HttpResponse<any>;
-        let _body: void = null;
-
-        return _resp.clone({body: _body}) as HttpResponse<void>;
-      })
-    );
-  }
-
-  /**
-   * @param value undefined
-   */
-  ApiValuesPost(value?: string): Observable<void> {
-    return this.ApiValuesPostResponse(value).pipe(
-      map(_r => _r.body)
-    );
-  }
-
-  /**
-   * @param id undefined
-   * @return Success
-   */
-  ApiValuesByIdGetResponse(id: number): Observable<HttpResponse<string>> {
-    let __params = this.newParams();
-    let __headers = new HttpHeaders();
-    let __body: any = null;
-
-    let req = new HttpRequest<any>(
-      'GET',
-      this.rootUrl + `/api/Values/${id}`,
-      __body,
-      {
-        headers: __headers,
-        params: __params,
-        responseType: 'text'
-      });
-
-    return this.http.request<any>(req).pipe(
-      filter(_r => _r instanceof HttpResponse),
-      map(_r => {
-        let _resp = _r as HttpResponse<any>;
-        let _body: string = null;
-        _body = _resp.body as string;
-        return _resp.clone({body: _body}) as HttpResponse<string>;
-      })
-    );
-  }
-
-  /**
-   * @param id undefined
-   * @return Success
-   */
-  ApiValuesByIdGet(id: number): Observable<string> {
-    return this.ApiValuesByIdGetResponse(id).pipe(
-      map(_r => _r.body)
-    );
-  }
-
-  /**
-   * @param params The `ValuesService.ApiValuesByIdPutParams` containing the following parameters:
-   *
-   * - `id`:
-   *
-   * - `value`:
-   */
-  ApiValuesByIdPutResponse(params: ValuesService.ApiValuesByIdPutParams): Observable<HttpResponse<void>> {
-    let __params = this.newParams();
-    let __headers = new HttpHeaders();
-    let __body: any = null;
-
-    __body = params.value;
+    __body = systemAction;
     let req = new HttpRequest<any>(
       'PUT',
-      this.rootUrl + `/api/Values/${params.id}`,
+      this.rootUrl + `/api/v1/systemActions`,
       __body,
       {
         headers: __headers,
@@ -167,29 +88,25 @@ class ValuesService extends BaseService {
   }
 
   /**
-   * @param params The `ValuesService.ApiValuesByIdPutParams` containing the following parameters:
-   *
-   * - `id`:
-   *
-   * - `value`:
+   * @param systemAction undefined
    */
-  ApiValuesByIdPut(params: ValuesService.ApiValuesByIdPutParams): Observable<void> {
-    return this.ApiValuesByIdPutResponse(params).pipe(
+  ApiV1SystemActionsPut(systemAction?: SystemActionEntity): Observable<void> {
+    return this.ApiV1SystemActionsPutResponse(systemAction).pipe(
       map(_r => _r.body)
     );
   }
 
   /**
-   * @param id undefined
+   * @param systemAction undefined
    */
-  ApiValuesByIdDeleteResponse(id: number): Observable<HttpResponse<void>> {
+  ApiV1SystemActionsPostResponse(systemAction?: SystemActionEntity): Observable<HttpResponse<void>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
-
+    __body = systemAction;
     let req = new HttpRequest<any>(
-      'DELETE',
-      this.rootUrl + `/api/Values/${id}`,
+      'POST',
+      this.rootUrl + `/api/v1/systemActions`,
       __body,
       {
         headers: __headers,
@@ -209,24 +126,54 @@ class ValuesService extends BaseService {
   }
 
   /**
-   * @param id undefined
+   * @param systemAction undefined
    */
-  ApiValuesByIdDelete(id: number): Observable<void> {
-    return this.ApiValuesByIdDeleteResponse(id).pipe(
+  ApiV1SystemActionsPost(systemAction?: SystemActionEntity): Observable<void> {
+    return this.ApiV1SystemActionsPostResponse(systemAction).pipe(
+      map(_r => _r.body)
+    );
+  }
+
+  /**
+   * @param ids undefined
+   */
+  ApiV1SystemActionsDeletePostResponse(ids?: Array<string>): Observable<HttpResponse<void>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+    __body = ids;
+    let req = new HttpRequest<any>(
+      'POST',
+      this.rootUrl + `/api/v1/systemActions/delete`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'text'
+      });
+
+    return this.http.request<any>(req).pipe(
+      filter(_r => _r instanceof HttpResponse),
+      map(_r => {
+        let _resp = _r as HttpResponse<any>;
+        let _body: void = null;
+
+        return _resp.clone({body: _body}) as HttpResponse<void>;
+      })
+    );
+  }
+
+  /**
+   * @param ids undefined
+   */
+  ApiV1SystemActionsDeletePost(ids?: Array<string>): Observable<void> {
+    return this.ApiV1SystemActionsDeletePostResponse(ids).pipe(
       map(_r => _r.body)
     );
   }
 }
 
-module ValuesService {
-
-  /**
-   * Parameters for ApiValuesByIdPut
-   */
-  export interface ApiValuesByIdPutParams {
-    id: number;
-    value?: string;
-  }
+module SystemActionsService {
 }
 
-export { ValuesService }
+export { SystemActionsService }

@@ -1,26 +1,24 @@
-﻿using Dapper.Contrib.Extensions;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace RobotCanary.Users
+namespace FlaskStudio.Users
 {
-    [Table("Users")]
     public class UserEntity
     {
-        [Dapper.Contrib.Extensions.Key]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
-        [MaxLength(245)]
         public string Email { get; set; }
 
-        [MaxLength(245)]
         public string FirstName { get; set; }
 
-        [MaxLength(245)]
         public string LastName { get; set; }
 
-        public bool Active { get; set; }
+        public bool IsActive { get; set; }
 
         public bool EmailVerified { get; set; }
+
+        [Required]
+        public Guid OrganizationId { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using RobotCanary.Users;
+using FlaskStudio.Users;
 
-namespace RobotCanary.ExternalServices.Okta
+namespace FlaskStudio.ExternalServices.Okta
 {
     public interface IAuthUserManager
     {

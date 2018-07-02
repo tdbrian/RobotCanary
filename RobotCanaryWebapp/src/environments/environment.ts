@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  robotCanaryApi: 'http://localhost:64299'
+  robotCanaryApi: 'http://localhost:5000'
 };

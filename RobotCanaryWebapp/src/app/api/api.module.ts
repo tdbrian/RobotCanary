@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiConfiguration } from './api-configuration';
 
-import { ValuesService } from './services/values.service';
+import { SystemActionsService } from './services/system-actions.service';
+import { UsersService } from './services/users.service';
 
 /**
  * Module that provides instances for all API services
@@ -17,7 +18,8 @@ import { ValuesService } from './services/values.service';
   declarations: [],
   providers: [
     ApiConfiguration,
-   ValuesService
+   SystemActionsService,
+   UsersService
   ],
 })
 export class ApiModule { }

@@ -5,13 +5,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Okta.Sdk;
 using Okta.Sdk.Configuration;
-using RobotCanary.ExternalServices.Okta;
-using RobotCanary.Users;
+using FlaskStudio.ExternalServices.Okta;
+using FlaskStudio.Users;
 using Swashbuckle.AspNetCore.Swagger;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using MongoDB.Driver;
 
-
-namespace RobotCanary
+namespace FlaskStudio
 {
     public class Startup
     {
@@ -26,8 +26,12 @@ namespace RobotCanary
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddTransient<UsersRepo>();
+            services.AddTransient<SystemActionsRepo>();
             services.AddTransient<IAuthUserManager, OktaUserManager>();
+            services.AddSingleton(_ => {
+                var client = new MongoClient(Configuration.GetConnectionString("flashstudiodb"));
+                return client.GetDatabase("flashstudio");
+            });
 
             services.AddSingleton(_ => new OktaClient(
                 new OktaClientConfiguration
@@ -39,7 +43,7 @@ namespace RobotCanary
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "RobotCanary API", Version = "v1" });
+                c.SwaggerDoc("v1", new Info { Title = "FlaskStudio API", Version = "v1" });
             });
 
             services.AddAuthentication(sharedOptions =>
@@ -72,7 +76,7 @@ namespace RobotCanary
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "RobotCanary API v1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "FlaskStudio API v1");
             });
         }
     }

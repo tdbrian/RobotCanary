@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using RobotCanary.Users;
+using FlaskStudio.Users;
 using System.Linq;
 using System.Threading.Tasks;
+using System;
 
-namespace RobotCanary.Controllers
+namespace FlaskStudio.Controllers
 {
     [Route("api/v1/user")]
-    [ApiController]
-    public class UsersController : ControllerBase
+    public class UsersController : Controller
     {
         private readonly UsersRepo usersRepo;
 
@@ -18,7 +18,7 @@ namespace RobotCanary.Controllers
         }
 
         [HttpGet("organization/{organizationId}")]
-        public ActionResult<List<UserEntity>> GetByOrganization(int organizationId)
+        public ActionResult<List<UserEntity>> GetByOrganization(Guid organizationId)
         {
             var users = usersRepo.GetOrganizationAll(organizationId).ToList();
             return users;
@@ -26,10 +26,10 @@ namespace RobotCanary.Controllers
 
         [HttpGet("email/{email}")]
         [ProducesResponseType(404)]
-        public ActionResult<UserEntity> GetByEmail(string email)
+        public ActionResult<UserEntity> GetByEmail(string email, Guid organizationId)
         {
             if (string.IsNullOrEmpty(email)) return ValidationProblem();
-            if (!usersRepo.TryGetByEmail(email, out var user)) return NotFound();
+            var user = usersRepo.GetByEmail(email, organizationId);
             return user;
         }
 
@@ -42,11 +42,13 @@ namespace RobotCanary.Controllers
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
+            throw new NotImplementedException();
         }
 
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            throw new NotImplementedException();
         }
     }
 }
